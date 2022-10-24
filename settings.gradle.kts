@@ -1,4 +1,7 @@
 pluginManagement {
+    /*plugins {
+        id("org.jetbrains.kotlin.android") version "1.6.10"
+    }*/
     repositories {
         gradlePluginPortal()
         google()
@@ -18,4 +21,4 @@ include(":app")
 include(":feature:messagesending")
 include(":core:utils")
 include(":uikit")
-include(":dependency")
+includeBuild("dependency")

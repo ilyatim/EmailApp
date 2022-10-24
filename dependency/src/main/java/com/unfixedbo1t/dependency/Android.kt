@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.unfixedbo1t.dependency
 
 object Android {
@@ -6,4 +8,5 @@ object Android {
     const val minVersion: Int = 23
     const val versionCode: Int = 1
     const val versionName: String = "1.0"
+    const val kotlinCompileExtVersion = "1.3.2"
 }
