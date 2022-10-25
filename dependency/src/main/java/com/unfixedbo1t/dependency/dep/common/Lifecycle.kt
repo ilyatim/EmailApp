@@ -1,17 +1,17 @@
-package com.unfixedbo1t.dependency.dep
+package com.unfixedbo1t.dependency.dep.common
 
 object Lifecycle {
     /**
      * Kotlin extensions for 'viewmodel' artifact
      * @see [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-ktx]
      */
-    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${viewModelVersion}"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModelVersion"
 
     /**
      * Kotlin extensions for 'lifecycle' artifact
      * @see [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-ktx]
      */
-    const val lifecycleRunKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}"
+    const val lifecycleRunKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 }
 
 //ViewModel

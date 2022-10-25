@@ -1,27 +1,25 @@
-typealias and = com.unfixedbo1t.dependency.Android
 typealias dep = com.unfixedbo1t.dependency.Dependency
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("dependency")
+    id("com.unfixedbo1t.dependency")
+    id("com.unfixedbo1t.android.compose")
+    id("com.unfixedbo1t.android.application")
 }
 
 android {
     namespace = "com.unfixedbo1t.mailapp"
-    compileSdk = and.compileVersion
 
     defaultConfig {
         applicationId = "com.unfixedbo1t.mailapp"
-        minSdk = and.minVersion
-        targetSdk = and.targetVersion
-        versionCode = and.versionCode
-        versionName = and.versionName
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        /*vectorDrawables {
-            useSupportLibrary true
-        }*/
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -29,19 +27,6 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = and.kotlinCompileExtVersion
     }
     packagingOptions {
         resources {
@@ -53,15 +38,6 @@ android {
 dependencies {
     dep.core.apply {
         implementation(androidCoreKtx)
-    }
-    dep.ui.apply {
-        implementation(activityCompose)
-        implementation(composeUi)
-        implementation(composeUiToolingPreview)
-        implementation(composeMaterial)
-        debugImplementation(composeUiTooling)
-        debugImplementation(composeUiTestManifest)
-        androidTestImplementation(composeUiTestJunit)
     }
     dep.lifecycle.apply {
         implementation(lifecycleRunKtx)

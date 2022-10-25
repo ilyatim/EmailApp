@@ -1,6 +1,8 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency.dep
+package com.unfixedbo1t.dependency.dep.common
+
+import com.unfixedbo1t.dependency.dep.CommonVersions
 
 object Ui {
     /**

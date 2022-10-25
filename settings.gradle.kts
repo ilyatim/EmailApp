@@ -1,7 +1,4 @@
 pluginManagement {
-    /*plugins {
-        id("org.jetbrains.kotlin.android") version "1.6.10"
-    }*/
     repositories {
         gradlePluginPortal()
         google()
