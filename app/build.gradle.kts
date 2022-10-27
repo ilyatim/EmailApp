@@ -1,11 +1,9 @@
 typealias dep = com.unfixedbo1t.dependency.Dependency
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.unfixedbo1t.dependency")
-    id("com.unfixedbo1t.android.compose")
+    id("com.unfixedbo1t.android.application.compose")
     id("com.unfixedbo1t.android.application")
+    id("com.unfixedbo1t.android.hilt")
 }
 
 android {

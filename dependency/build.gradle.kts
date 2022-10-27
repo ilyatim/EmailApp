@@ -15,9 +15,9 @@ gradlePlugin {
         id = "com.unfixedbo1t.dependency"
         implementationClass = "com.unfixedbo1t.dependency.plugin.ProjectPlugin"
     }
-    plugins.register("androidCompose") {
-        id = "com.unfixedbo1t.android.compose"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposePlugin"
+    plugins.register("androidComposeApplication") {
+        id = "com.unfixedbo1t.android.application.compose"
+        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeApplicationPlugin"
     }
     plugins.register("androidApplication") {
         id = "com.unfixedbo1t.android.application"
@@ -30,5 +30,9 @@ gradlePlugin {
     plugins.register("androidHilt") {
         id = "com.unfixedbo1t.android.hilt"
         implementationClass = "com.unfixedbo1t.dependency.plugin.HiltPlugin"
+    }
+    plugins.register("androidCompose") {
+        id = "com.unfixedbo1t.android.library.compose"
+        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeLibraryPlugin"
     }
 }

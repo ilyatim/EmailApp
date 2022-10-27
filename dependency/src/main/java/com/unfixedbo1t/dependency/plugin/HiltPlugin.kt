@@ -12,9 +12,8 @@ class HiltPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("org.jetbrains.kotlin.kapt")
-                //TODO: handle version problem
                 apply("dagger.hilt.android.plugin")
+                apply("org.jetbrains.kotlin.kapt")
             }
 
             dependencies {

@@ -1,9 +1,8 @@
 typealias dep = com.unfixedbo1t.dependency.Dependency
 
 plugins {
-    id("com.unfixedbo1t.dependency")
     id("com.unfixedbo1t.android.library")
-    //id("com.unfixedbo1t.android.compose")
+    id("com.unfixedbo1t.android.library.compose")
 }
 
 android {
