@@ -6,6 +6,11 @@ import com.unfixedbo1t.dependency.dep.CommonVersions
 
 object Ui {
     /**
+     * A compatible set of Jetpack Compose libraries.
+     * @see [https://mvnrepository.com/artifact/androidx.compose/compose-bom/2022.10.00]
+     */
+    const val composeBom: String = "androidx.compose:compose-bom:$composeBomVersion"
+    /**
      * Compose integration with Activity
      * @see [https://mvnrepository.com/artifact/androidx.activity/activity-compose]
      */
@@ -49,9 +54,11 @@ object Ui {
      * @see [https://mvnrepository.com/artifact/androidx.compose.ui/ui-test-junit4]
      */
     const val composeUiTestJunit: String = "androidx.compose.ui:ui-test-junit4:$composeUiTestJunitVersion"
+
 }
 
 private const val composeActivityVersion = "1.6.0"
+private const val composeBomVersion = "2022.10.00"
 private const val composeUiVersion = CommonVersions.composeVersion
 private const val composeUiToolingPreviewVersion = CommonVersions.composeVersion
 private const val composeMaterialVersion = CommonVersions.composeVersion

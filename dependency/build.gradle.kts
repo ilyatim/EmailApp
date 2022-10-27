@@ -35,4 +35,12 @@ gradlePlugin {
         id = "com.unfixedbo1t.android.library.compose"
         implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeLibraryPlugin"
     }
+    plugins.register("androidFeature") {
+        id = "com.unfixedbo1t.android.feature"
+        implementationClass = "com.unfixedbo1t.dependency.plugin.FeaturePlugin"
+    }
+    plugins.register("androidComposeFeature") {
+        id = "com.unfixedbo1t.android.feature.compose"
+        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeFeaturePlugin"
+    }
 }

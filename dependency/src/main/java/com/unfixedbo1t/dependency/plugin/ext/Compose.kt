@@ -20,12 +20,15 @@ internal fun Project.configureComposeAndroid(
             compose = true
         }
         dependencies {
+            //TODO: use bom
+            //add("implementation", platform(dep.ui.composeBom))
+            //add("androidTestImplementation", platform(dep.ui.composeBom))
             implementation(dep.ui.composeUi)
             implementation(dep.ui.composeUiToolingPreview)
             implementation(dep.ui.composeMaterial)
+            implementation(dep.lifecycle.composeLifecycleRuntimeExt)
             implementation(dep.navigation.composeNavigation)
             implementation(dep.navigation.composeRuntimeKtxNavigation)
-            implementation(dep.navigation.hiltComposeNavigation)
             debugImplementation(dep.ui.composeUiTooling)
             debugImplementation(dep.ui.composeUiTestManifest)
             androidTestImplementation(dep.ui.composeUiTestJunit)

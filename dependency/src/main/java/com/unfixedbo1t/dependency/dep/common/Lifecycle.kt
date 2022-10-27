@@ -1,5 +1,8 @@
 package com.unfixedbo1t.dependency.dep.common
 
+import com.unfixedbo1t.dependency.dep.CommonVersions.lifecycleVersion
+import com.unfixedbo1t.dependency.dep.CommonVersions.viewModelVersion
+
 object Lifecycle {
     /**
      * Kotlin extensions for 'viewmodel' artifact
@@ -12,9 +15,12 @@ object Lifecycle {
      * @see [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-ktx]
      */
     const val lifecycleRunKtx = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+
+    /**
+     * Compose integration with Lifecycle
+     * @see [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-compose]
+     */
+    const val composeLifecycleRuntimeExt: String = "androidx.lifecycle:lifecycle-runtime-compose:$composeLifecycleVersion"
 }
 
-//ViewModel
-const val viewModelVersion = "2.4.0"
-//Lifecycle
-const val lifecycleVersion = "2.3.1"
+private const val composeLifecycleVersion = "2.6.0-alpha03"
