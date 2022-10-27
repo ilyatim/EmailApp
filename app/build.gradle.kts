@@ -34,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":uikit"))
     dep.core.apply {
         implementation(androidCoreKtx)
     }

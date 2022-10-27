@@ -25,6 +25,7 @@ internal fun Project.configureComposeAndroid(
             implementation(dep.ui.composeMaterial)
             implementation(dep.navigation.composeNavigation)
             implementation(dep.navigation.composeRuntimeKtxNavigation)
+            implementation(dep.navigation.hiltComposeNavigation)
             debugImplementation(dep.ui.composeUiTooling)
             debugImplementation(dep.ui.composeUiTestManifest)
             androidTestImplementation(dep.ui.composeUiTestJunit)

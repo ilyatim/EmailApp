@@ -2,6 +2,8 @@ package com.unfixedbo1t.messagesending.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import com.unfixedbo1t.messagesending.ui.SendMessageScreen
 
 private const val ROUTE: String = "message_sending_route"
 
@@ -14,7 +16,12 @@ fun NavController.navigateToMessageSending(
 fun NavGraphBuilder.messageSendingScreen(
     onBackClick: () -> Unit
 ) {
-    /*composable(
-
-    )*/
+    composable(
+        route = "$ROUTE/",
+        arguments = listOf()
+    ) {
+        SendMessageScreen(
+            onBackClick = onBackClick
+        )
+    }
 }

@@ -1,4 +1,4 @@
-package com.unfixedbo1t.mailapp.ui.theme
+package com.unfixedbo1t.uikit.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
