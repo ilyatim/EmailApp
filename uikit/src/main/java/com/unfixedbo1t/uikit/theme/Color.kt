@@ -2,7 +2,8 @@ package com.unfixedbo1t.uikit.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val Blue66A4ED = Color(0xFF66A4ED)
+val Gray808080 = Color(0xFF808080)
+val GrayEAEAEA = Color(0xFFEAEAEA)
+val DarkBlue0B192F = Color(0xFF0B192F)
+val Blue162B46 = Color(0xFF162B46)
