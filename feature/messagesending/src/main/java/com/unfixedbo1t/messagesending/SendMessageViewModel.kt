@@ -1,18 +1,22 @@
 package com.unfixedbo1t.messagesending
 
-import androidx.lifecycle.ViewModel
+import com.unfixedbo1t.model.BaseMviViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 @HiltViewModel
-class SendMessageViewModel @Inject constructor(
+class SendMessageViewModel @Inject constructor() : BaseMviViewModel<UiState, Effect>(
+    UiState()
+) {
 
-) : ViewModel() {
-    val uiState: StateFlow<SendMessageUiState> = MutableStateFlow(SendMessageUiState("some"))
 }
 
-data class SendMessageUiState(
-    val string: String
+sealed class Effect {
+    data class Toast(val value: String): Effect()
+}
+
+data class UiState(
+    val string: String = "",
+    val isLoading: Boolean = false,
+    val isError: Boolean = false
 )

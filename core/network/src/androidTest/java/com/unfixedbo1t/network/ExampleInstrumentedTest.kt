@@ -1,4 +1,4 @@
-package com.unfixedbo1t.messagesending
+package com.unfixedbo1t.network
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -18,7 +18,7 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals(
-            "com.unfixedbo1t.messagesending",
+            "com.unfixedbo1t.network.test",
             appContext.packageName
         )
     }

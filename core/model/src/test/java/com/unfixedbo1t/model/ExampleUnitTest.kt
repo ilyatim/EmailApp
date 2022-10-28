@@ -1,4 +1,4 @@
-package com.unfixedbo1t.messagesending
+package com.unfixedbo1t.model
 
 import org.junit.Test
 import org.junit.Assert.*

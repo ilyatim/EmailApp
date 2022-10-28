@@ -11,6 +11,8 @@ internal fun Project.configureFeatureDependencies(
         dependencies {
             implementation(project(":uikit"))
             implementation(project(":core:utils"))
+            implementation(project(":core:model"))
+            implementation(project(":core:network"))
 
             implementation(dep.navigation.hiltComposeNavigation)
             implementation(dep.lifecycle.composeLifecycleRuntimeExt)
