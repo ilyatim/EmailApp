@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 abstract class BaseMviViewModel<STATE: Any, EFFECT: Any>(
     initialState: STATE,
-    @Dispatcher(MDispatchers.MAIN) dispatcherMain: CoroutineDispatcher = Dispatchers.Main,
+    dispatcherMain: CoroutineDispatcher = Dispatchers.Main,
 ) : ViewModel(), CoroutineScope by CoroutineScope(SupervisorJob() + dispatcherMain) {
     private val _uiState: MutableStateFlow<STATE> = MutableStateFlow(initialState)
     private val _effectsFlow: MutableSharedFlow<EFFECT> = MutableSharedFlow()
