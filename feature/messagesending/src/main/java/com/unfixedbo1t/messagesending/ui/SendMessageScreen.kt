@@ -7,10 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.unfixedbo1t.messagesending.Effect
-import com.unfixedbo1t.messagesending.UiState
 import com.unfixedbo1t.messagesending.SendMessageViewModel
-import kotlinx.coroutines.flow.collect
+import com.unfixedbo1t.messagesending.ui.content.ContentSendMessageScreen
 
 @OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
@@ -31,13 +29,18 @@ internal fun SendMessageScreen(
 
 @Composable
 private fun SendMessageScreen(
+    state: UiState,
     onBackClick: () -> Unit,
-    state: UiState
+    onCancelClick: () -> Unit,
+    onSendClick: () -> Unit
 ) {
     when {
         state.isError -> ErrorSendMessageScreen()
         state.isLoading -> LoadingSendMessageScreen()
-        else -> ContentSendMessageScreen()
+        else -> ContentSendMessageScreen(
+            onCancelClick = {},
+            onSendClick = {},
+        )
     }
 }
 
@@ -46,3 +49,13 @@ private fun handleSideEffect(effect: Effect) {
         is Effect.Toast -> TODO()
     }
 }
+
+sealed interface Effect {
+    data class Toast(val value: String): Effect
+}
+
+data class UiState(
+    val string: String = "",
+    val isLoading: Boolean = false,
+    val isError: Boolean = false
+)

@@ -1,5 +1,7 @@
 package com.unfixedbo1t.messagesending
 
+import com.unfixedbo1t.messagesending.ui.Effect
+import com.unfixedbo1t.messagesending.ui.UiState
 import com.unfixedbo1t.model.BaseMviViewModel
 import com.unfixedbo1t.model.dispatchers.Dispatcher
 import com.unfixedbo1t.model.dispatchers.MDispatchers
@@ -16,13 +18,3 @@ class SendMessageViewModel @Inject constructor(
 ) {
 
 }
-
-sealed interface Effect {
-    data class Toast(val value: String): Effect
-}
-
-data class UiState(
-    val string: String = "",
-    val isLoading: Boolean = false,
-    val isError: Boolean = false
-)

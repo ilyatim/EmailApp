@@ -22,8 +22,8 @@ abstract class BaseMviViewModel<STATE: Any, EFFECT: Any>(
 ) : ViewModel(), CoroutineScope by CoroutineScope(SupervisorJob() + dispatcherMain) {
     private val _uiState: MutableStateFlow<STATE> = MutableStateFlow(initialState)
     private val _effectsFlow: MutableSharedFlow<EFFECT> = MutableSharedFlow()
-
     val uiState: StateFlow<STATE>
+
         get() = _uiState.asStateFlow()
     val effects: SharedFlow<EFFECT>
         get() = _effectsFlow.asSharedFlow()

@@ -13,6 +13,7 @@ internal fun Project.configureFeatureDependencies(
             implementation(project(":core:utils"))
             implementation(project(":core:model"))
             implementation(project(":core:network"))
+            implementation(project(":core:resources"))
 
             implementation(dep.navigation.hiltComposeNavigation)
             implementation(dep.lifecycle.composeLifecycleRuntimeExt)
