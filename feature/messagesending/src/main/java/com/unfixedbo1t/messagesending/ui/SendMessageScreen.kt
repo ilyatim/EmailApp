@@ -1,9 +1,12 @@
 package com.unfixedbo1t.messagesending.ui
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -17,13 +20,19 @@ internal fun SendMessageScreen(
     modifier: Modifier = Modifier,
     viewModel: SendMessageViewModel = hiltViewModel()
 ) {
+    val localContext = LocalContext.current
+
     LaunchedEffect(viewModel) {
-        viewModel.effects.collect(::handleSideEffect)
+        viewModel.effects.collect { value ->
+            handleSideEffect(value, localContext)
+        }
     }
     val state: UiState by viewModel.uiState.collectAsStateWithLifecycle()
     SendMessageScreen(
-        onBackClick = onBackClick,
         state = state,
+        onBackClick = onBackClick,
+        onCancelClick = { viewModel.onCancelClick() },
+        onSendClick = { viewModel.onSendClick() }
     )
 }
 
@@ -38,15 +47,15 @@ private fun SendMessageScreen(
         state.isError -> ErrorSendMessageScreen()
         state.isLoading -> LoadingSendMessageScreen()
         else -> ContentSendMessageScreen(
-            onCancelClick = {},
-            onSendClick = {},
+            onCancelClick = onCancelClick,
+            onSendClick = onSendClick,
         )
     }
 }
 
-private fun handleSideEffect(effect: Effect) {
+private fun handleSideEffect(effect: Effect, context: Context) {
     when (effect) {
-        is Effect.Toast -> TODO()
+        is Effect.Toast -> Toast.makeText(context, effect.value, Toast.LENGTH_SHORT).show()
     }
 }
 

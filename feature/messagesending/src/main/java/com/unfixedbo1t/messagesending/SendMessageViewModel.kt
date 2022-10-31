@@ -16,5 +16,11 @@ class SendMessageViewModel @Inject constructor(
     UiState(),
     dispatcher
 ) {
+    fun onCancelClick() {
+        sendEffect(Effect.Toast("cancel"))
+    }
 
+    fun onSendClick() {
+        sendEffect(Effect.Toast("send"))
+    }
 }
