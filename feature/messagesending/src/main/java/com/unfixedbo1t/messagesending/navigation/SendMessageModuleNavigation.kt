@@ -5,19 +5,19 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.unfixedbo1t.messagesending.ui.SendMessageScreen
 
-private const val ROUTE: String = "message_sending_route"
+const val SEND_MESSAGE_ROUTE: String = "message_sending_route"
 
 fun NavController.navigateToMessageSending(
 
 ) {
-    this.navigate("$ROUTE/")
+    this.navigate("$SEND_MESSAGE_ROUTE")
 }
 
 fun NavGraphBuilder.messageSendingScreen(
     onBackClick: () -> Unit
 ) {
     composable(
-        route = "$ROUTE/",
+        route = "$SEND_MESSAGE_ROUTE",
         arguments = listOf()
     ) {
         SendMessageScreen(

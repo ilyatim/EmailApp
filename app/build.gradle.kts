@@ -34,7 +34,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":uikit"))/*
+    implementation(project(":uikit"))
+    implementation(project(":feature:messagesending"))
+    /*
     dep.core.apply {
         implementation(androidCoreKtx)
     }*/
