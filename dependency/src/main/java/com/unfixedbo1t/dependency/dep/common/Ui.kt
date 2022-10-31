@@ -55,8 +55,15 @@ object Ui {
      */
     const val composeUiTestJunit: String = "androidx.compose.ui:ui-test-junit4:$composeUiTestJunitVersion"
 
+    /**
+     * Utilities for Jetpack Compose
+     * @see [https://mvnrepository.com/artifact/com.google.accompanist/accompanist-systemuicontroller]
+     */
+    const val systemUiController: String = "com.google.accompanist:accompanist-systemuicontroller:$systemUiControllerVersion"
+
 }
 
+private const val systemUiControllerVersion = "0.27.0"
 private const val composeActivityVersion = "1.6.0"
 private const val composeBomVersion = "2022.10.00"
 private const val composeUiVersion = CommonVersions.composeVersion

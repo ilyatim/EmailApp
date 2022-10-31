@@ -1,5 +1,7 @@
 package com.unfixedbo1t.uikit.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 sealed interface ColorSystem {
@@ -45,4 +47,13 @@ object DarkColorSystem : ColorSystem {
     override val onBackground: Color = Color.White
     override val onSurface: Color = Blue66A4ED
     override val onError: Color = Color.White //TODO
+}
+
+@Composable
+fun getColorSystem(): ColorSystem {
+    return if (isSystemInDarkTheme()) {
+        DarkColorSystem
+    } else {
+        LightColorSystem
+    }
 }
