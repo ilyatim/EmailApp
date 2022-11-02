@@ -1,4 +1,7 @@
 <resources>
     <string name="icon_cancel_content_description">content_description</string>
     <string name="icon_send_content_description">content_description</string>
+    <string name="icon_recipient_content_description">content_description</string>
+    <string name="send_to">Send to</string>
+    <string name="input_here">Input here</string>
 </resources>

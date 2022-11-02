@@ -31,7 +31,7 @@ fun HintTextField(
         textStyle = textStyle,
         cursorBrush = cursorBrush
     ) {
-        Text(text = hintValue)
+        SubtitleText(text = hintValue)
     }
 }
 

@@ -49,6 +49,7 @@ private fun SendMessageScreen(
         else -> ContentSendMessageScreen(
             onCancelClick = onCancelClick,
             onSendClick = onSendClick,
+            recipients = listOf()
         )
     }
 }
