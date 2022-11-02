@@ -26,7 +26,6 @@ class AppState(
     val currentDestination: NavDestination?
         @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 
-
     fun onBackClick() {
         navController.popBackStack()
     }

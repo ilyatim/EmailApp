@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.unfixedbo1t.uikit.component.HintTextField
+import com.unfixedbo1t.uikit.component.PlaceholderTextField
 import com.unfixedbo1t.uikit.component.LineDivider
 
 @Composable
@@ -51,12 +52,10 @@ internal fun ContentSendMessageScreen(
             HintTextField(
                 modifier = Modifier.fillMaxWidth().padding(top = 16.dp, start = 22.dp, end = 22.dp),
                 value = inputSubject.value,
+                hintValue = "input here",
                 onValueChange = { newValue -> inputSubject.value = newValue },
-                textStyle = LocalTextStyle.current.copy(color = MaterialTheme.colors.onBackground)
-            ) {
-                Text(text = "input here")
-            }
-            
+            )
+
             LineDivider(Modifier.padding(top = 10.dp))
             
             LazyColumn {
