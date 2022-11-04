@@ -14,14 +14,22 @@ import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.DrawableCompat
+import coil.Coil
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.unfixedbo1t.messagesending.Recipient
 import com.unfixedbo1t.messagesending.ui.Effect
 import com.unfixedbo1t.resources.R
 import com.unfixedbo1t.uikit.component.SubtitleText
+import com.unfixedbo1t.uikit.theme.Gray808080
 import com.unfixedbo1t.uikit.theme.getColorSystem
 
 @Composable
@@ -61,16 +69,36 @@ private fun RecipientCell(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            //TODO: change icon on user image
-            Image(
-                modifier = Modifier.padding(start = 4.dp).size(20.dp),
-                imageVector = Icons.Default.Send,
-                contentScale = ContentScale.FillBounds,
-                contentDescription = ""/*stringResource(id = R.string.icon_recipient_content_description)*/
-            )
+            CoilImage(url = cell.image)
             Text(modifier = Modifier.padding(4.dp), text = cell.email)
         }
     }
+}
+
+@Composable
+private fun CoilImage(
+    url: String?,
+) {
+    val drawable = LocalContext.current.getDrawable(R.drawable.ic_baseline_account_circle_24)
+    drawable?.let {
+        DrawableCompat.setTint(it, getColorSystem().onSurfaceIcon.toArgb())
+    }
+
+    val request = ImageRequest.Builder(LocalContext.current)
+        .data(url)
+        .placeholder(drawable)
+        .crossfade(false)
+        .build()
+
+    val painter = rememberAsyncImagePainter(model = request)
+    Image(
+        modifier = Modifier
+            .padding(start = 4.dp)
+            .size(20.dp),
+        painter = painter,
+        contentScale = ContentScale.FillBounds,
+        contentDescription = stringResource(id = R.string.icon_recipient_content_description)
+    )
 }
 
 //TODO: change on provide preview

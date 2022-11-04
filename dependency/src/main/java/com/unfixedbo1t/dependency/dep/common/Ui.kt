@@ -61,9 +61,15 @@ object Ui {
      */
     const val systemUiController: String = "com.google.accompanist:accompanist-systemuicontroller:$systemUiControllerVersion"
 
+    /**
+     * An image loading library for Android backed by Kotlin Coroutines
+     * @see [https://mvnrepository.com/artifact/io.coil-kt/coil-compose]
+     */
+    const val coilCompose: String = "io.coil-kt:coil-compose:$composeCoilVersion"
 }
 
 private const val systemUiControllerVersion = "0.27.0"
+private const val composeCoilVersion = "2.2.2"
 private const val composeActivityVersion = "1.6.0"
 private const val composeBomVersion = "2022.10.00"
 private const val composeUiVersion = CommonVersions.composeVersion

@@ -19,6 +19,7 @@ sealed interface ColorSystem {
     val onError: Color
     val titleText: Color
     val subtitleText: Color
+    val onSurfaceIcon: Color
 }
 
 object LightColorSystem : ColorSystem {
@@ -38,6 +39,7 @@ object LightColorSystem : ColorSystem {
     //TODO
     override val titleText: Color = Color.Black
     override val subtitleText: Color = Gray808080
+    override val onSurfaceIcon: Color = GrayC9C9C9
 }
 
 object DarkColorSystem : ColorSystem {
@@ -57,6 +59,7 @@ object DarkColorSystem : ColorSystem {
     //TODO
     override val titleText: Color = Color.White
     override val subtitleText: Color = Gray808080
+    override val onSurfaceIcon: Color = Color.White
 }
 
 @Composable
