@@ -36,7 +36,7 @@ object LightColorSystem : ColorSystem {
     override val onSurface: Color = Blue66A4ED
     override val onError: Color = Color.White
 
-    //TODO
+    // TODO
     override val titleText: Color = Color.Black
     override val subtitleText: Color = Gray808080
     override val onSurfaceIcon: Color = GrayC9C9C9
@@ -49,14 +49,14 @@ object DarkColorSystem : ColorSystem {
     override val secondaryVariant: Color = Blue162B46
     override val background: Color = DarkBlue0B192F
     override val surface: Color = Blue162B46
-    override val error: Color = Color.Red //TODO: change red color
+    override val error: Color = Color.Red // TODO: change red color
     override val onPrimary: Color = Color.White
     override val onSecondary: Color = Blue66A4ED
     override val onBackground: Color = Color.White
     override val onSurface: Color = Blue66A4ED
-    override val onError: Color = Color.White //TODO: change red color
+    override val onError: Color = Color.White // TODO: change red color
 
-    //TODO
+    // TODO
     override val titleText: Color = Color.White
     override val subtitleText: Color = Gray808080
     override val onSurfaceIcon: Color = Color.White

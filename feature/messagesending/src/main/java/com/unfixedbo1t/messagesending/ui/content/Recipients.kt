@@ -9,27 +9,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.DrawableCompat
-import coil.Coil
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.unfixedbo1t.messagesending.Recipient
-import com.unfixedbo1t.messagesending.ui.Effect
 import com.unfixedbo1t.resources.R
 import com.unfixedbo1t.uikit.component.SubtitleText
-import com.unfixedbo1t.uikit.theme.Gray808080
 import com.unfixedbo1t.uikit.theme.getColorSystem
 
 @Composable
@@ -75,6 +69,7 @@ private fun RecipientCell(
     }
 }
 
+// TODO: move in ui kit
 @Composable
 private fun CoilImage(
     url: String?,
@@ -101,7 +96,7 @@ private fun CoilImage(
     )
 }
 
-//TODO: change on provide preview
+// TODO: change on provide preview
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
@@ -112,7 +107,6 @@ private fun Preview() {
         ),
         modifier = Modifier.padding(10.dp)
     ) {
-
     }
-    //SendTo(recipients =)
+    // SendTo(recipients =)
 }

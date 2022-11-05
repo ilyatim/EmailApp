@@ -2,12 +2,9 @@ package com.unfixedbo1t.messagesending.ui.content
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
@@ -22,7 +19,6 @@ import com.unfixedbo1t.messagesending.Recipient
 import com.unfixedbo1t.resources.R
 import com.unfixedbo1t.uikit.component.HintTextField
 import com.unfixedbo1t.uikit.component.LineDivider
-import com.unfixedbo1t.uikit.component.SubtitleText
 
 @Composable
 internal fun ContentSendMessageScreen(
@@ -33,7 +29,7 @@ internal fun ContentSendMessageScreen(
 ) {
     val scaffoldState = rememberScaffoldState()
     val inputSubject = remember { mutableStateOf("") }
-    
+
     Scaffold(
         modifier = modifier,
         scaffoldState = scaffoldState,
@@ -50,11 +46,10 @@ internal fun ContentSendMessageScreen(
     ) { paddingValues ->
         Column {
             SendTo(recipients) {
-
             }
-            
+
             LineDivider(Modifier.padding(top = 10.dp))
-            
+
             HintTextField(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -69,9 +64,8 @@ internal fun ContentSendMessageScreen(
             )
 
             LineDivider(Modifier.padding(top = 10.dp))
-            
-            LazyColumn {
 
+            LazyColumn {
             }
         }
     }

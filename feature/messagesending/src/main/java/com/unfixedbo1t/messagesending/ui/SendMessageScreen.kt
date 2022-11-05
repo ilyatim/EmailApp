@@ -61,7 +61,7 @@ private fun handleSideEffect(effect: Effect, context: Context) {
 }
 
 sealed interface Effect {
-    data class Toast(val value: String): Effect
+    data class Toast(val value: String) : Effect
 }
 
 data class UiState(

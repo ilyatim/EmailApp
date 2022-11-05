@@ -6,8 +6,8 @@ import com.unfixedbo1t.model.BaseMviViewModel
 import com.unfixedbo1t.model.dispatchers.Dispatcher
 import com.unfixedbo1t.model.dispatchers.MDispatchers
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
+import javax.inject.Inject
 
 @HiltViewModel
 class SendMessageViewModel @Inject constructor(

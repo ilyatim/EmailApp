@@ -7,9 +7,7 @@ import com.unfixedbo1t.messagesending.ui.SendMessageScreen
 
 const val SEND_MESSAGE_ROUTE: String = "message_sending_route"
 
-fun NavController.navigateToMessageSending(
-
-) {
+fun NavController.navigateToMessageSending() {
     this.navigate("$SEND_MESSAGE_ROUTE")
 }
 
