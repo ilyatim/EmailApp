@@ -5,3 +5,6 @@ data class Recipient(
     val email: String,
     val image: String? = null,
 )
+
+
+
