@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+
 typealias dep = com.unfixedbo1t.dependency.Dependency
 
 plugins {
@@ -33,13 +35,13 @@ android {
     }
 }
 
+tasks.preBuild.dependsOn("ktlintCheck")
+tasks.check.dependsOn("ktlintCheck")
+
 dependencies {
     implementation(project(":uikit"))
     implementation(project(":feature:messagesending"))
-    /*
-    dep.core.apply {
-        implementation(androidCoreKtx)
-    }*/
+
     dep.lifecycle.apply {
         implementation(lifecycleRunKtx)
     }

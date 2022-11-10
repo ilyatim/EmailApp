@@ -2,10 +2,9 @@
 
 echo "Running git pre-commit hook"
 
-./gradlew ktlintCheck --daemon
+./gradlew app:test --daemon
 
 STATUS=$?
 
-# return 1 exit code if running checks fails
 [ $STATUS -ne 0 ] && exit 1
 exit 0

@@ -21,15 +21,9 @@ subprojects {
 }
 
 tasks.register<Copy>("installGitHook") {
-    from(file("${rootProject.rootDir}/scripts/pre-commit"))
-    into(file("${rootProject.rootDir}/git/hooks"))
+    from(File(rootProject.rootDir, "./scripts/pre-commit.sh"))
+    into(File(rootProject.rootDir, ".git/hooks"))
+    fileMode = 7770
 }
-tasks.getByPath(":app:preBuild").dependsOn("installGitHook")
-/*
-task installGitHook(type: Copy) {
-    from new File(rootProject.rootDir, './scripts/pre-commit')
-    into { new File(rootProject.rootDir, '.git/hooks') }
-    fileMode 0777
-}
-tasks.getByPath(':app:preBuild').dependsOn installGitHook*/
 
+tasks.getByPath(":app:preBuild").dependsOn(getTasksByName("installGitHook", true))
