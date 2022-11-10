@@ -20,10 +20,10 @@ subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
-tasks.register<Copy>("installGitHook") {
-    from(File(rootProject.rootDir, "./scripts/pre-commit.sh"))
+val installGitHook by tasks.creating(Copy::class) {
+    from(File(rootProject.rootDir, "scripts/pre-commit.sh"))
     into(File(rootProject.rootDir, ".git/hooks"))
-    fileMode = 7770
+    fileMode = 775
 }
 
-tasks.getByPath(":app:preBuild").dependsOn(getTasksByName("installGitHook", true))
+tasks.getByPath(":app:preBuild").dependsOn(installGitHook)
