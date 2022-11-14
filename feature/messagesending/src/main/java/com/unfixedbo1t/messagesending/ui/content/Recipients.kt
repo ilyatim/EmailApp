@@ -4,17 +4,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,32 +39,29 @@ internal fun SendTo(
     onClick: (Recipient) -> Unit
 ) {
     val input = remember { mutableStateOf("") }
-
-    Row() {
-        SubtitleText(
-            modifier = Modifier.padding(start = 22.dp, top = 5.dp),
-            text = stringResource(id = R.string.send_to)
-        )
-
-        LazyVerticalGrid(
-            userScrollEnabled = false,
-            columns = GridCells.Adaptive(minSize = 120.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            items(recipients) {
-                RecipientCell(
-                    cell = it,
-                ) {
-                    onClick(it)
-                }
+    LazyVerticalGrid(
+        userScrollEnabled = false,
+        columns = GridCells.Fixed(3),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        item {
+            SubtitleText(
+                modifier = Modifier.padding(start = 18.dp, top = 5.dp),
+                text = stringResource(id = R.string.send_to)
+            )
+        }
+        items(recipients) {
+            RecipientCell(cell = it) {
+                onClick(it)
             }
         }
-
-        /*TextField(
-            value = input.value,
-            onValueChange = onInputChanged
-        )*/
+        /*item {
+            TextField(
+                value = input.value,
+                onValueChange = onInputChanged
+            )
+        }*/
     }
 }
 
@@ -78,7 +71,7 @@ private fun RecipientCell(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
-    //TODO: add on click on surface
+    // TODO: add on click on surface
     Surface(
         modifier = modifier.wrapContentSize(),
         shape = RoundedCornerShape(10.dp),

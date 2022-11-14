@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.unfixedbo1t.messagesending.Recipient
 import com.unfixedbo1t.messagesending.SendMessageViewModel
 import com.unfixedbo1t.messagesending.ui.content.ContentSendMessageScreen
 
@@ -49,7 +50,7 @@ private fun SendMessageScreen(
         else -> ContentSendMessageScreen(
             onCancelClick = onCancelClick,
             onSendClick = onSendClick,
-            recipients = listOf()
+            recipients = state.recipients
         )
     }
 }
@@ -65,7 +66,7 @@ sealed interface Effect {
 }
 
 data class UiState(
-    val string: String = "",
     val isLoading: Boolean = false,
-    val isError: Boolean = false
+    val isError: Boolean = false,
+    val recipients: List<Recipient> = listOf()
 )

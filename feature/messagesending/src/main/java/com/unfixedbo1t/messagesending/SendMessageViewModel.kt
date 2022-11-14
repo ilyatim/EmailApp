@@ -8,14 +8,23 @@ import com.unfixedbo1t.model.dispatchers.MDispatchers
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class SendMessageViewModel @Inject constructor(
+    private val repository: RecipientRepository,
     @Dispatcher(MDispatchers.MAIN) dispatcher: CoroutineDispatcher
 ) : BaseMviViewModel<UiState, Effect>(
     UiState(),
     dispatcher
 ) {
+    init {
+        launch {
+            setUiState(
+                UiState(recipients = repository.getAvailable())
+            )
+        }
+    }
     fun onCancelClick() {
         sendEffect(Effect.Toast("cancel"))
     }
