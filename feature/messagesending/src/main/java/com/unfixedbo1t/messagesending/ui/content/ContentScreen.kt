@@ -45,8 +45,11 @@ internal fun ContentSendMessageScreen(
         backgroundColor = MaterialTheme.colors.background
     ) { paddingValues ->
         Column {
-            SendTo(recipients) {
-            }
+            SendTo(
+                recipients,
+                onInputChanged = { },
+                onClick = { }
+            )
 
             LineDivider(Modifier.padding(top = 10.dp))
 
