@@ -8,7 +8,7 @@ class RecipientsProvider : PreviewParameterProvider<List<Recipient>> {
         listOf(
             Recipient(1, "some@mail.ru"),
             Recipient(22, "test@email.ru"),
-            Recipient(33, "some@gmail.com"),
+            Recipient(33, "some15@gmail.com"),
             Recipient(100, "somelooooooooooongtestemail@mail.ru")
         )
     )

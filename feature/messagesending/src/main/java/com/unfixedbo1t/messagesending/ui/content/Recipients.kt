@@ -1,9 +1,15 @@
 package com.unfixedbo1t.messagesending.ui.content
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
@@ -17,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -37,24 +44,31 @@ internal fun SendTo(
 ) {
     val input = remember { mutableStateOf("") }
 
-    Row {
+    Row() {
         SubtitleText(
-            modifier = Modifier.padding(start = 22.dp),
+            modifier = Modifier.padding(start = 22.dp, top = 5.dp),
             text = stringResource(id = R.string.send_to)
         )
 
-        LazyRow(userScrollEnabled = false) {
+        LazyVerticalGrid(
+            userScrollEnabled = false,
+            columns = GridCells.Adaptive(minSize = 120.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
             items(recipients) {
-                RecipientCell(cell = it) {
+                RecipientCell(
+                    cell = it,
+                ) {
                     onClick(it)
                 }
             }
         }
 
-        TextField(
+        /*TextField(
             value = input.value,
             onValueChange = onInputChanged
-        )
+        )*/
     }
 }
 
@@ -64,8 +78,9 @@ private fun RecipientCell(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
+    //TODO: add on click on surface
     Surface(
-        modifier = modifier,
+        modifier = modifier.wrapContentSize(),
         shape = RoundedCornerShape(10.dp),
         color = getColorSystem().surface,
         contentColor = getColorSystem().onSurface,
@@ -75,7 +90,12 @@ private fun RecipientCell(
             verticalAlignment = Alignment.CenterVertically
         ) {
             AccountImage(url = cell.image)
-            Text(modifier = Modifier.padding(4.dp), text = cell.email)
+            Text(
+                modifier = Modifier.padding(4.dp),
+                text = cell.email.takeIf { it.length < 15 } ?: cell.email.takeWhile { it != '@' },
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+            )
         }
     }
 }
