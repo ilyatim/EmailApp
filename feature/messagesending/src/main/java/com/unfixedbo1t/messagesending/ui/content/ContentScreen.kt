@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.unfixedbo1t.messagesending.Recipient
 import com.unfixedbo1t.resources.R
-import com.unfixedbo1t.uikit.component.HintTextField
+import com.unfixedbo1t.uikit.component.BlankHintTextField
 import com.unfixedbo1t.uikit.component.LineDivider
 
 @Composable
@@ -25,7 +25,8 @@ internal fun ContentSendMessageScreen(
     modifier: Modifier = Modifier,
     recipients: List<Recipient>,
     onCancelClick: () -> Unit,
-    onSendClick: () -> Unit
+    onSendClick: () -> Unit,
+    onRecipientInputEnd: (String) -> Unit
 ) {
     val scaffoldState = rememberScaffoldState()
     val inputSubject = remember { mutableStateOf("") }
@@ -47,13 +48,13 @@ internal fun ContentSendMessageScreen(
         Column {
             SendTo(
                 recipients,
-                onInputChanged = { },
-                onClick = { }
+                onInputEnd = onRecipientInputEnd,
+                onRecipientClick = { }
             )
 
             LineDivider(Modifier.padding(top = 10.dp))
 
-            HintTextField(
+            BlankHintTextField(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
@@ -68,8 +69,7 @@ internal fun ContentSendMessageScreen(
 
             LineDivider(Modifier.padding(top = 10.dp))
 
-            LazyColumn {
-            }
+            LazyColumn {}
         }
     }
 }
@@ -81,6 +81,7 @@ private fun Preview() {
     ContentSendMessageScreen(
         onCancelClick = {},
         onSendClick = {},
+        onRecipientInputEnd = {},
         recipients = listOf()
     )
 }

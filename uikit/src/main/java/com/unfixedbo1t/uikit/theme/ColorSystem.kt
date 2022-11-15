@@ -53,7 +53,7 @@ object DarkColorSystem : ColorSystem {
     override val onPrimary: Color = Color.White
     override val onSecondary: Color = Blue66A4ED
     override val onBackground: Color = Color.White
-    override val onSurface: Color = Blue66A4ED
+    override val onSurface: Color = Color.White
     override val onError: Color = Color.White // TODO: change red color
 
     // TODO

@@ -32,4 +32,8 @@ class SendMessageViewModel @Inject constructor(
     fun onSendClick() {
         sendEffect(Effect.Toast("send"))
     }
+
+    fun addRecipient(value: String) {
+        sendEffect(Effect.Toast("add $value"))
+    }
 }

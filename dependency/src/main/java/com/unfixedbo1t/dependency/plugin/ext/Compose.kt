@@ -28,6 +28,7 @@ internal fun Project.configureComposeAndroid(
             implementation(dep.ui.composeMaterial)
             implementation(dep.ui.systemUiController)
             implementation(dep.ui.coilCompose)
+            implementation(dep.ui.composeFoundation)
             implementation(dep.lifecycle.composeLifecycleRuntimeExt)
             implementation(dep.navigation.composeNavigation)
             implementation(dep.navigation.composeRuntimeKtxNavigation)

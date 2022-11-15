@@ -33,7 +33,8 @@ internal fun SendMessageScreen(
         state = state,
         onBackClick = onBackClick,
         onCancelClick = { viewModel.onCancelClick() },
-        onSendClick = { viewModel.onSendClick() }
+        onSendClick = { viewModel.onSendClick() },
+        onRecipientInputEnd = { viewModel.addRecipient(it) }
     )
 }
 
@@ -42,7 +43,8 @@ private fun SendMessageScreen(
     state: UiState,
     onBackClick: () -> Unit,
     onCancelClick: () -> Unit,
-    onSendClick: () -> Unit
+    onSendClick: () -> Unit,
+    onRecipientInputEnd: (String) -> Unit
 ) {
     when {
         state.isError -> ErrorSendMessageScreen()
@@ -50,6 +52,7 @@ private fun SendMessageScreen(
         else -> ContentSendMessageScreen(
             onCancelClick = onCancelClick,
             onSendClick = onSendClick,
+            onRecipientInputEnd = onRecipientInputEnd,
             recipients = state.recipients
         )
     }

@@ -1,24 +1,33 @@
 package com.unfixedbo1t.messagesending.ui.content
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -27,41 +36,67 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.unfixedbo1t.messagesending.Recipient
 import com.unfixedbo1t.messagesending.ui.data.RecipientsProvider
 import com.unfixedbo1t.resources.R
+import com.unfixedbo1t.uikit.component.BasicBlankTextField
 import com.unfixedbo1t.uikit.component.CoilImage
 import com.unfixedbo1t.uikit.component.SubtitleText
 import com.unfixedbo1t.uikit.theme.MailAppTheme
 import com.unfixedbo1t.uikit.theme.getColorSystem
 
+@OptIn(
+    ExperimentalFoundationApi::class,
+    ExperimentalComposeUiApi::class
+)
 @Composable
 internal fun SendTo(
     recipients: List<Recipient>,
-    onInputChanged: (String) -> Unit,
-    onClick: (Recipient) -> Unit
+    onInputEnd: (String) -> Unit,
+    onRecipientClick: (Recipient) -> Unit
 ) {
     val input = remember { mutableStateOf("") }
-    LazyVerticalGrid(
-        userScrollEnabled = false,
-        columns = GridCells.Fixed(3),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        item {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+    Column {
+        Row(
+            modifier = Modifier
+                .padding(top = 5.dp, bottom = 5.dp)
+                .wrapContentHeight()
+                .fillMaxWidth()
+        ) {
             SubtitleText(
-                modifier = Modifier.padding(start = 18.dp, top = 5.dp),
+                modifier = Modifier
+                    .padding(
+                        start = 18.dp,
+                    )
+                    .wrapContentSize(),
                 text = stringResource(id = R.string.send_to)
             )
+            val onDone = {
+                keyboardController?.hide()
+                onInputEnd.invoke(input.value)
+            }
+            BasicBlankTextField(
+                modifier = Modifier.padding(start = 10.dp),
+                value = input.value,
+                onValueChange = { newValue -> input.value = newValue },
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                keyboardActions = KeyboardActions(onDone = { onDone.invoke() })
+            )
         }
-        items(recipients) {
-            RecipientCell(cell = it) {
-                onClick(it)
+        LazyVerticalStaggeredGrid(
+            columns = StaggeredGridCells.Fixed(3),
+            modifier = Modifier
+                .wrapContentHeight()
+                .padding(start = 10.dp, end = 10.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            userScrollEnabled = false
+        ) {
+            items(recipients) {
+                RecipientCell(cell = it) {
+                    onRecipientClick(it)
+                }
             }
         }
-        /*item {
-            TextField(
-                value = input.value,
-                onValueChange = onInputChanged
-            )
-        }*/
     }
 }
 
@@ -99,7 +134,9 @@ fun AccountImage(
 ) {
     val drawable = LocalContext.current.getDrawable(R.drawable.ic_baseline_account_circle_24)
     drawable?.let {
-        DrawableCompat.setTint(it, getColorSystem().onSurfaceIcon.toArgb())
+        // TODO: fix bug with an immutable color
+        val color = getColorSystem().onSurface
+        DrawableCompat.setTint(it, color.toArgb())
     }
 
     CoilImage(
@@ -120,8 +157,8 @@ private fun PreviewFull(
     MailAppTheme {
         SendTo(
             recipients = fakeRecipientsProvider,
-            onInputChanged = { },
-            onClick = { }
+            onInputEnd = { },
+            onRecipientClick = { }
         )
     }
 }
@@ -134,7 +171,6 @@ private fun PreviewCell(
     MailAppTheme {
         RecipientCell(
             cell = fakeRecipientsProvider.first(),
-            modifier = Modifier.padding(10.dp),
             onClick = { }
         )
     }

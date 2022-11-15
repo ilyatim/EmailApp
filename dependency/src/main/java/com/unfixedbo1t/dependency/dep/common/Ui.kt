@@ -24,6 +24,13 @@ object Ui {
     const val composeUi: String = "androidx.compose.ui:ui:$composeUiVersion"
 
     /**
+     * Higher level abstractions of the Compose UI primitives. This library is design system agnostic,
+     * providing the high-level building blocks for both application and design-system developers
+     * @see [https://mvnrepository.com/artifact/androidx.compose.foundation/foundation]
+     */
+    const val composeFoundation: String = "androidx.compose.foundation:foundation:$composeFoundationVersion"
+
+    /**
      * Compose tooling library API.
      * This library provides the API required to declare @Preview composables in user apps.
      * @see [https://mvnrepository.com/artifact/androidx.compose.ui/ui-tooling-preview]
@@ -72,6 +79,7 @@ private const val systemUiControllerVersion = "0.27.0"
 private const val composeCoilVersion = "2.2.2"
 private const val composeActivityVersion = "1.6.0"
 private const val composeBomVersion = "2022.10.00"
+private const val composeFoundationVersion = CommonVersions.composeVersion
 private const val composeUiVersion = CommonVersions.composeVersion
 private const val composeUiToolingPreviewVersion = CommonVersions.composeVersion
 private const val composeMaterialVersion = CommonVersions.composeVersion
