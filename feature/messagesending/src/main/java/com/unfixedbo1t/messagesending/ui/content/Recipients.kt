@@ -1,6 +1,7 @@
 package com.unfixedbo1t.messagesending.ui.content
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -106,9 +107,10 @@ private fun RecipientCell(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
-    // TODO: add on click on surface
+    // TODO: add click handle on surface
     Surface(
-        modifier = modifier.wrapContentSize(),
+        modifier = modifier.wrapContentSize()
+            .clickable { onClick.invoke() },
         shape = RoundedCornerShape(10.dp),
         color = getColorSystem().surface,
         contentColor = getColorSystem().onSurface,

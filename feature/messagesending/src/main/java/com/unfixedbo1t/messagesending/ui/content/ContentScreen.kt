@@ -26,7 +26,8 @@ internal fun ContentSendMessageScreen(
     recipients: List<Recipient>,
     onCancelClick: () -> Unit,
     onSendClick: () -> Unit,
-    onRecipientInputEnd: (String) -> Unit
+    onRecipientInputEnd: (String) -> Unit,
+    onRecipientClick: (Recipient) -> Unit
 ) {
     val scaffoldState = rememberScaffoldState()
     val inputSubject = remember { mutableStateOf("") }
@@ -49,7 +50,7 @@ internal fun ContentSendMessageScreen(
             SendTo(
                 recipients,
                 onInputEnd = onRecipientInputEnd,
-                onRecipientClick = { }
+                onRecipientClick = onRecipientClick
             )
 
             LineDivider(Modifier.padding(top = 10.dp))
@@ -82,6 +83,7 @@ private fun Preview() {
         onCancelClick = {},
         onSendClick = {},
         onRecipientInputEnd = {},
-        recipients = listOf()
+        recipients = listOf(),
+        onRecipientClick = {}
     )
 }
