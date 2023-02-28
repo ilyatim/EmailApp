@@ -1,9 +1,9 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency.plugin
+package com.unfixedbo1t.buildOptions.plugin
 
 import com.android.build.api.dsl.LibraryExtension
-import com.unfixedbo1t.dependency.plugin.ext.configureFeatureDependencies
+import com.unfixedbo1t.buildOptions.plugin.ext.configureFeatureDependencies
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.getByType

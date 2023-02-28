@@ -1,7 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
-typealias dep = com.unfixedbo1t.dependency.Dependency
-
 plugins {
     id("com.unfixedbo1t.android.application.compose")
     id("com.unfixedbo1t.android.application")
@@ -42,12 +40,8 @@ dependencies {
     implementation(project(":uikit"))
     implementation(project(":feature:messagesending"))
 
-    dep.lifecycle.apply {
-        implementation(lifecycleRunKtx)
-    }
-    dep.test.apply {
-        testImplementation(junit)
-        androidTestImplementation(junitAndroidExt)
-        androidTestImplementation(espressoCore)
-    }
+    implementation(libs.lifecycle.run.ktx)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit.androidExt)
+    androidTestImplementation(libs.espresso.core)
 }

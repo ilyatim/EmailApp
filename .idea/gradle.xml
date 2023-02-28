@@ -7,9 +7,9 @@
         <compositeConfiguration>
           <compositeBuild compositeDefinitionSource="SCRIPT">
             <builds>
-              <build path="$PROJECT_DIR$/dependency" name="Dependency">
+              <build path="$PROJECT_DIR$/buildOptions" name="BuildOptions">
                 <projects>
-                  <project path="$PROJECT_DIR$/dependency" />
+                  <project path="$PROJECT_DIR$/buildOptions" />
                 </projects>
               </build>
             </builds>
@@ -22,12 +22,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildOptions" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/model" />
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/resources" />
             <option value="$PROJECT_DIR$/core/utils" />
-            <option value="$PROJECT_DIR$/dependency" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/messagesending" />
             <option value="$PROJECT_DIR$/uikit" />

@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency.plugin
+package com.unfixedbo1t.buildOptions.plugin
 
 import org.gradle.api.*
 

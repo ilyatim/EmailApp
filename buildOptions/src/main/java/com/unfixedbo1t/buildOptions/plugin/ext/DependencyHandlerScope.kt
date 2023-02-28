@@ -1,4 +1,4 @@
-package com.unfixedbo1t.dependency.plugin.ext
+package com.unfixedbo1t.buildOptions.plugin.ext
 
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope

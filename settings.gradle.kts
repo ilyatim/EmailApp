@@ -14,7 +14,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Mail"
-includeBuild("dependency")
+includeBuild("buildOptions")
 include(":app")
 include(":feature:messagesending")
 include(":core:utils")

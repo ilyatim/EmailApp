@@ -1,14 +1,13 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency.plugin
+package com.unfixedbo1t.buildOptions.plugin
 
 import com.android.build.api.dsl.LibraryExtension
-import com.unfixedbo1t.dependency.plugin.ext.and
-import com.unfixedbo1t.dependency.plugin.ext.configureKotlinAndroid
+import com.unfixedbo1t.buildOptions.Android
+import com.unfixedbo1t.buildOptions.plugin.ext.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.get
 
 class LibraryPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -19,7 +18,7 @@ class LibraryPlugin : Plugin<Project> {
             }
 
             extensions.configure<LibraryExtension> {
-                defaultConfig.targetSdk = and.targetVersion
+                defaultConfig.targetSdk = Android.targetVersion
                 configureKotlinAndroid(this)
             }
         }

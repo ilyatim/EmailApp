@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency
+package com.unfixedbo1t.buildOptions
 
 object Android {
     const val targetVersion: Int = 33

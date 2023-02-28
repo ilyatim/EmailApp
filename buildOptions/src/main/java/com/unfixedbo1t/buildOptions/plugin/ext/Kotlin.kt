@@ -1,6 +1,7 @@
-package com.unfixedbo1t.dependency.plugin.ext
+package com.unfixedbo1t.buildOptions.plugin.ext
 
 import com.android.build.api.dsl.CommonExtension
+import com.unfixedbo1t.buildOptions.Android
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
@@ -10,10 +11,10 @@ internal fun Project.configureKotlinAndroid(
     extension: CommonExtension<*, *, *, *>
 ) {
     extension.apply {
-        compileSdk = and.compileVersion
+        compileSdk = Android.compileVersion
 
         defaultConfig {
-            minSdk = and.minVersion
+            minSdk = Android.minVersion
         }
 
         compileOptions {

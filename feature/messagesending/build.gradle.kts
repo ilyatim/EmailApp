@@ -1,5 +1,3 @@
-typealias dep = com.unfixedbo1t.dependency.Dependency
-
 plugins {
     id("com.unfixedbo1t.android.feature.compose")
 }
@@ -9,9 +7,7 @@ android {
 }
 
 dependencies {
-    dep.test.apply {
-        testImplementation(junit)
-        androidTestImplementation(junitAndroidExt)
-        androidTestImplementation(espressoCore)
-    }
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit.androidExt)
+    androidTestImplementation(libs.espresso.core)
 }

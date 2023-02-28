@@ -1,10 +1,10 @@
 @file:Suppress("unused")
 
-package com.unfixedbo1t.dependency.plugin
+package com.unfixedbo1t.buildOptions.plugin
 
 import com.android.build.api.dsl.ApplicationExtension
-import com.unfixedbo1t.dependency.plugin.ext.and
-import com.unfixedbo1t.dependency.plugin.ext.configureKotlinAndroid
+import com.unfixedbo1t.buildOptions.Android
+import com.unfixedbo1t.buildOptions.plugin.ext.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -18,7 +18,7 @@ class ApplicationPlugin : Plugin<Project> {
             }
 
             extensions.configure<ApplicationExtension> {
-                defaultConfig.targetSdk = and.targetVersion
+                defaultConfig.targetSdk = Android.targetVersion
                 configureKotlinAndroid(this)
             }
         }

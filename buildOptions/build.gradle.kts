@@ -11,36 +11,32 @@ dependencies {
 }
 
 gradlePlugin {
-    plugins.register("dependency") {
-        id = "com.unfixedbo1t.dependency"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ProjectPlugin"
-    }
     plugins.register("androidComposeApplication") {
         id = "com.unfixedbo1t.android.application.compose"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeApplicationPlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.ComposeApplicationPlugin"
     }
     plugins.register("androidApplication") {
         id = "com.unfixedbo1t.android.application"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ApplicationPlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.ApplicationPlugin"
     }
     plugins.register("androidLibrary") {
         id = "com.unfixedbo1t.android.library"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.LibraryPlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.LibraryPlugin"
     }
     plugins.register("androidHilt") {
         id = "com.unfixedbo1t.android.hilt"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.HiltPlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.HiltPlugin"
     }
     plugins.register("androidCompose") {
         id = "com.unfixedbo1t.android.library.compose"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeLibraryPlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.ComposeLibraryPlugin"
     }
     plugins.register("androidFeature") {
         id = "com.unfixedbo1t.android.feature"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.FeaturePlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.FeaturePlugin"
     }
     plugins.register("androidComposeFeature") {
         id = "com.unfixedbo1t.android.feature.compose"
-        implementationClass = "com.unfixedbo1t.dependency.plugin.ComposeFeaturePlugin"
+        implementationClass = "com.unfixedbo1t.buildOptions.plugin.ComposeFeaturePlugin"
     }
 }

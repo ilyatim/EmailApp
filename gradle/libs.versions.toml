@@ -1,0 +1,67 @@
+[versions]
+androidCoreKtxVersion = "1.8.0"
+appCompatVersion = "1.4.2"
+googleMaterialVersion = "1.6.0-alpha01"
+daggerVersion = "2.44"
+composeVersion = "1.3.1"
+lifecycleVersion = "2.4.0"
+composeLifecycleRuntimeExtVersion = "2.6.0-alpha03"
+navigationVersion = "2.5.2"
+hiltComposeNavigationVersion = "1.0.0"
+composeBomVersion = "2022.10.00"
+activityComposeVersion = "1.6.0"
+systemUiControllerVersion = "0.27.0"
+coilComposeVersion = "2.2.2"
+junitVersion = "4.13.2"
+junitAndroidExtVersion = "1.1.3-rc01"
+espressoCoreVersion = "3.4.0"
+
+[libraries]
+# Kotlin extensions for 'core' artifact [https://mvnrepository.com/artifact/androidx.core/core-ktx]
+android-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidCoreKtxVersion" }
+# to use APIs that are either not available for older platform versions [https://mvnrepository.com/artifact/androidx.appcompat/appcompat]
+app-compat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appCompatVersion" }
+# A fast dependency injector for Android and Java. [https://mvnrepository.com/artifact/com.google.dagger/hilt-android-compiler]
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerVersion" }
+# [https://mvnrepository.com/artifact/com.google.dagger/hilt-android]
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerVersion" }
+# Kotlin extensions for 'viewmodel' artifact [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-viewmodel-ktx]
+viewModel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
+# Kotlin extensions for 'lifecycle' artifact [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-ktx]
+lifecycle-run-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleVersion" }
+# Compose integration with Lifecycle [https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-compose]
+compose-lifecycle-runtimeExt = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "composeLifecycleRuntimeExtVersion" }
+# Compose integration with Navigation [https://mvnrepository.com/artifact/androidx.navigation/navigation-compose]
+compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationVersion" }
+# Android Navigation-Runtime-Ktx [https://mvnrepository.com/artifact/androidx.navigation/navigation-runtime-ktx]
+compose-navigation-runtimeKtx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationVersion" }
+# Navigation Compose Hilt Integration [https://mvnrepository.com/artifact/androidx.hilt/hilt-navigation-compose]
+hilt-compose-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeNavigationVersion" }
+# A compatible set of Jetpack Compose libraries. [https://mvnrepository.com/artifact/androidx.compose/compose-bom/2022.10.00]
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBomVersion" }
+# Compose integration with Activity [https://mvnrepository.com/artifact/androidx.activity/activity-compose]
+compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVersion" }
+# Compose UI primitives [https://mvnrepository.com/artifact/androidx.compose.ui/ui]
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "composeVersion" }
+# Higher level abstractions of the Compose UI primitives [https://mvnrepository.com/artifact/androidx.compose.foundation/foundation]
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeVersion" }
+# Compose tooling library API. [https://mvnrepository.com/artifact/androidx.compose.ui/ui-tooling-preview]
+compose-ui-toolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "composeVersion" }
+# Compose Material Design Components library [https://mvnrepository.com/artifact/androidx.compose.material/material]
+compose-material = { group = "androidx.compose.material", name = "material", version.ref = "composeVersion" }
+# Compose tooling library. [https://mvnrepository.com/artifact/androidx.compose.ui/ui-tooling]
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "composeVersion" }
+# Compose testing library. [https://mvnrepository.com/artifact/androidx.compose.ui/ui-test-manifest]
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "composeVersion" }
+# Compose testing integration with JUnit4 [https://mvnrepository.com/artifact/androidx.compose.ui/ui-test-junit4]
+compose-ui-test-junit = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "composeVersion" }
+# Utilities for Jetpack Compose [https://mvnrepository.com/artifact/com.google.accompanist/accompanist-systemuicontroller]
+systemUiController = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "systemUiControllerVersion" }
+# An image loading library for Android backed by Kotlin Coroutines [https://mvnrepository.com/artifact/io.coil-kt/coil-compose]
+compose-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilComposeVersion" }
+# JUnit is a unit testing framework to write and run repeatable automated tests on Java. [https://mvnrepository.com/artifact/junit/junit]
+junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+# [https://mvnrepository.com/artifact/androidx.test.ext/junit]
+junit-androidExt = { group = "androidx.test.ext", name = "junit", version.ref = "junitAndroidExtVersion" }
+# The AndroidX Test Library provides an extensive framework for testing Android apps
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
