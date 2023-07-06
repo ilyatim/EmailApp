@@ -37,6 +37,7 @@ tasks.preBuild.dependsOn("ktlintCheck")
 tasks.check.dependsOn("ktlintCheck")
 
 dependencies {
+
     implementation(project(":uikit"))
     implementation(project(":feature:messagesending"))
 
